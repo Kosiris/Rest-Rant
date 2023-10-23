@@ -19,4 +19,19 @@ router.get('/', (req,res)=>{
 
 })
 
+router.get('/new', (req, res) => {
+  res.render('places/new')
+})
+
+router.put('/:id', (req, res) => {
+  db.Place.findByIdAndUpdate(req.params.id, req.body)
+      .then(() => {
+          res.redirect(`/places/${req.params.id}`)
+      })
+      .catch(err => {
+          console.log('err', err)
+          res.render('error404')
+      })
+})
+
 module.exports = router
