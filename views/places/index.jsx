@@ -1,15 +1,6 @@
 const React = require('react')
-const Def = require('./default')
+const Def = require('../default')
 
-function index () {
-    return (
-        <Def>
-            <main>
-                <h1>Index</h1>
-            </main>
-        </Def>
-      )
-}
 function index (data) {
   let placesFormatted = data.places.map((place, index) => {
     return (
